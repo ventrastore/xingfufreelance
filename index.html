@@ -7,11 +7,13 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="app-screen" style="display:flex; flex-direction:column; justify-content:center; padding:20px;">
-        <div style="text-align:center; margin-bottom:40px;">
-            <h1 style="font-size:48px; font-weight:900; letter-spacing:-3px;">Xingfu.</h1>
-            <p style="color:var(--text-muted); font-weight:600; font-size:14px; letter-spacing:1px;">出色的自由职业者</p>
+    <div class="app-screen">
+        
+        <div class="header-section">
+            <h1>Xingfu.</h1>
+            <p>出色的自由职业者</p>
         </div>
+
         <div class="premium-card">
             <form id="loginForm">
                 <input type="text" id="username" placeholder="Username" required>
@@ -19,6 +21,13 @@
                 <button type="submit" class="btn-main" id="loginBtn">Masuk</button>
             </form>
         </div>
+
+        <div class="back-link-container">
+            <a href="https://google.com" class="btn-back-premium">
+                <span class="icon">←</span> Kembali ke Beranda
+            </a>
+        </div>
+
     </div>
     <script src="js/login.js"></script>
 </body>
