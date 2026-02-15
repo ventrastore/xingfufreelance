@@ -1,19 +1,49 @@
+// Data User
 const users = [
-    { username: "calvinyulanda", password: "calvin202624011", nama: "Calvin Yulanda", kota: "Malang", dashboard: "dashboard/user1.html" },
-    { username: "jihan123", password: "4567", nama: "Siti Aminah", kota: "Bandung", dashboard: "dashboard/user2.html" }
+    { 
+        username: "calvinyulanda", 
+        password: "calvin202624011", 
+        nama: "Calvin Yulanda", 
+        dashboard: "dashboard/user1.html" 
+    },
+    { 
+        username: "jefri", 
+        password: "jefri2152026", 
+        nama: "Jefri", 
+        dashboard: "dashboard/user2.html" 
+    }
 ];
 
-document.getElementById('loginForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const u = document.getElementById('username').value;
-    const p = document.getElementById('password').value;
-    const found = users.find(user => user.username === u && user.password === p);
+// Tunggu sampai DOM sepenuhnya dimuat
+document.addEventListener('DOMContentLoaded', () => {
+    const loginForm = document.getElementById('loginForm');
 
-    if (found) {
-        sessionStorage.setItem('isLoggedIn', 'true');
-        sessionStorage.setItem('currentUser', JSON.stringify(found));
-        window.location.href = found.dashboard;
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Mencegah refresh halaman
+
+            // Ambil value dari input
+            const u = document.getElementById('username').value.trim();
+            const p = document.getElementById('password').value.trim();
+
+            // Cari user yang cocok
+            const found = users.find(user => user.username === u && user.password === p);
+
+            if (found) {
+                // Simpan data ke sessionStorage
+                sessionStorage.setItem('isLoggedIn', 'true');
+                sessionStorage.setItem('currentUser', JSON.stringify(found));
+
+                // Redirect ke dashboard
+                console.log("Login Berhasil, mengalihkan...");
+                window.location.href = found.dashboard;
+            } else {
+                // Notifikasi jika salah
+                alert("Akses Ditolak! Username atau Password salah.");
+                console.error("Login Gagal: Data tidak ditemukan.");
+            }
+        });
     } else {
-        alert("Akses Ditolak!");
+        console.error("Error: Elemen 'loginForm' tidak ditemukan di HTML.");
     }
 });
