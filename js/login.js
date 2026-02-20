@@ -7,9 +7,9 @@ const users = [
         dashboard: "dashboard/user1.html" 
     },
     { 
-        username: "jefri", 
-        password: "jefri2152026", 
-        nama: "Jefri", 
+        username: "ristaikaayu", 
+        password: "rista2202026", 
+        nama: "rista ika ayu", 
         dashboard: "dashboard/user2.html" 
     }
 ];
